@@ -10,10 +10,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-b$^9z%9d+fr&=k3-7e@!su%aa$)!qq0*2q-vv(-x&_&=cw*xdh'
 
+#################################################################
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#################################################################
 
-ALLOWED_HOSTS = ['transkritor1-9fqme85s.b4a.run']
+ALLOWED_HOSTS = [
+    'transkritor1-9fqme85s.b4a.run',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://transkritor1-9fqme85s.b4a.run', # Permissão de inclusão de arquivos
+]
 
 # Application definition
 
