@@ -18,5 +18,6 @@ from django.urls import re_path
 from conversor import views
 
 urlpatterns = [
-    re_path(r'^$', views.index),
+    re_path(r'^$', views.index, name='index'),  # View para o index
+    re_path(r'^(?!$)', views.custom_404_view),  # Captura todos os paths exceto o index
 ]
