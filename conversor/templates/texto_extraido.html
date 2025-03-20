@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto Extraido</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Estilizar o botão de voltar */
+        .botao-voltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .botao-voltar:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilizar título e conteúdo */
+        h1 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <a href="/" class="botao-voltar">← Voltar</a>
+    
+    <!-- Conteúdo principal -->
+    <h1>Texto Extraído</h1>
+    <form>
+        {% csrf_token %}
+        <p>
+            {% if texto_recebido %}
+                <strong>Transcrição:</strong> {{ texto_recebido }}
+            {% endif %}
+        </p>
+    </form>
+</body>
+</html>
