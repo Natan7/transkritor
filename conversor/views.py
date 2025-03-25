@@ -19,7 +19,7 @@ def index(request):
 
         try:
             # Carregar o modelo Whisper (pode usar 'base', 'small', 'medium', etc., dependendo do recurso disponível)
-            model = whisper.load_model("base")
+            model = whisper.load_model("tiny")
 
             # Realizar a transcrição
             result = model.transcribe(temp_audio_path, language='pt')
