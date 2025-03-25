@@ -1,11 +1,14 @@
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-import speech_recognition as sr
-
 import os
-import whisper
+import assemblyai as aai
+from dotenv import load_dotenv
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
+
+# Configuração do transcritor com sua chave de API
+load_dotenv()  # Carregar variáveis de ambiente do arquivo .env
+API_KEY = os.getenv("AI_KEY") # Chave de acesso gratuita
+aai.settings.api_key = os.getenv("AI_KEY")
+TRANSCRIBER = aai.Transcriber(config=aai.TranscriptionConfig(language_code='pt'))
 
 def index(request):
     if request.method == 'POST' and request.FILES.get('audio_file'):
@@ -18,14 +21,10 @@ def index(request):
                 temp_audio.write(chunk)
 
         try:
-            # Carregar o modelo Whisper (pode usar 'base', 'small', 'medium', etc., dependendo do recurso disponível)
-            model = whisper.load_model("tiny")
+            # Enviar o áudio para o AssemblyAI e obter a transcrição
+            transcription = TRANSCRIBER.transcribe(temp_audio_path).text
 
-            # Realizar a transcrição
-            result = model.transcribe(temp_audio_path, language='pt')
-            transcription = result['text']
-
-            # Remover o arquivo temporário após a transcrição
+            # Remover o arquivo temporário
             os.remove(temp_audio_path)
 
             # Retornar a transcrição na resposta
