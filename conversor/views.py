@@ -12,7 +12,6 @@ TRANSCRIBER = aai.Transcriber(config=aai.TranscriptionConfig(language_code='pt')
 
 def index(request):
     if request.method == 'POST' and request.FILES.get('audio_file'):
-        return transcribe_text(request, 'sssssssssssssssssssssssssssdmfsd nsdfn sd,fn  ns,dmfn')
         audio_file = request.FILES['audio_file']
 
         # Salvar o arquivo de áudio no disco temporariamente
@@ -35,11 +34,11 @@ def index(request):
             return JsonResponse({'error': f'Erro ao transcrever o áudio: {str(e)}'})
 
     # Renderizar o template para upload do arquivo de áudio
-    return render(request, 'conversao.html')
+    return render(request, 'index.html')
 
 def transcribe_text(request, text=None):
     if(text):
-        return render(request, 'texto_extraido.html', {'texto_recebido': text})
+        return render(request, 'transcribed_text.html', {'texto_recebido': text})
     
     return index(request)
 
