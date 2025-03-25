@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transcrição de Áudio</title>
     <style>
-        /* Estilos aqui */
+        /* Estilos gerais */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -58,9 +58,31 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil no topo do rodapé */
+            position: fixed; /* Fixa na parte inferior da tela */
+            bottom: 0;
+            left: 0;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body class="container">
+<body>
     <h1 class="title">Transcrever Áudio</h1>
     <form method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
@@ -68,5 +90,6 @@
         <input type="file" id="audio_file" name="audio_file" accept="audio/*" class="input-file">
         <button type="submit" class="submit-button">Transcrever</button>
     </form>
+    {% include 'footer.html' %}
 </body>
 </html>
