@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from django.shortcuts import render
 from django.http import JsonResponse
 
-# Configuração do transcritor com sua chave de API
+# Configuração do transkritor com sua chave de API
 load_dotenv()  # Carregar variáveis de ambiente do arquivo .env
 API_KEY = os.getenv("AI_KEY") # Chave de acesso gratuita
 aai.settings.api_key = os.getenv("AI_KEY")
@@ -12,6 +12,7 @@ TRANSCRIBER = aai.Transcriber(config=aai.TranscriptionConfig(language_code='pt')
 
 def index(request):
     if request.method == 'POST' and request.FILES.get('audio_file'):
+        return transcribe_text(request, 'sssssssssssssssssssssssssssdmfsd nsdfn sd,fn  ns,dmfn')
         audio_file = request.FILES['audio_file']
 
         # Salvar o arquivo de áudio no disco temporariamente

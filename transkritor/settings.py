@@ -1,5 +1,5 @@
 """
-Django settings for transcritor project.
+Django settings for transkritor project.
 """
 
 from pathlib import Path
@@ -17,6 +17,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'transkritor1-9fqme85s.b4a.run',
+]
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Certifique-se de que esta pasta contém os arquivos CSS
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -44,12 +49,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'transcritor.urls'
+ROOT_URLCONF = 'transkritor.urls'
 import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'conversor/templates')],  # Path to your global templates folder
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Path to your global templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'transcritor.wsgi.application'
+WSGI_APPLICATION = 'transkritor.wsgi.application'
 
 
 # Database
