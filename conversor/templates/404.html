@@ -4,72 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página não encontrada</title>
-    <style>
-        /* Estilos gerais */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        /* Estilo apenas para o botão de voltar */
-        a.button {
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-
-        a.button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Estilo para links dentro do rodapé */
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #f1f1f1;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil no topo do rodapé */
-            position: fixed; /* Fixa na parte inferior da tela */
-            bottom: 0;
-            left: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body class="container">
     <h1 class="title">Oops! Página não encontrada (404)</h1>
-    <p>A página que você está procurando não existe. Clique no botão abaixo para voltar à página inicial.</p>
+    <p class="error-message">A página que você está procurando não existe. Clique no botão abaixo para voltar à página inicial.</p>
     <a href="/" class="button">Voltar à página inicial</a>
     {% include 'footer.html' %}
 </body>

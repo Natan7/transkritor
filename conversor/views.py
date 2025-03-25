@@ -2,21 +2,39 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import speech_recognition as sr
 
+import os
+import whisper
+from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+
 def index(request):
     if request.method == 'POST' and request.FILES.get('audio_file'):
         audio_file = request.FILES['audio_file']
-        recognizer = sr.Recognizer()
 
-        with sr.AudioFile(audio_file) as source:
-            audio_data = recognizer.record(source)
-            try:
-                transcription = recognizer.recognize_google(audio_data, language='pt-BR')
-                return transcribe_text(request, transcription)
-            except sr.UnknownValueError:
-                return JsonResponse({'error': 'Não foi possível transcrever o áudio.'})
-            except sr.RequestError as e:
-                return JsonResponse({'error': f'Erro na API: {e}'})
-    
+        # Salvar o arquivo de áudio no disco temporariamente
+        temp_audio_path = f"temp_{audio_file.name}"
+        with open(temp_audio_path, 'wb') as temp_audio:
+            for chunk in audio_file.chunks():
+                temp_audio.write(chunk)
+
+        try:
+            # Carregar o modelo Whisper (pode usar 'base', 'small', 'medium', etc., dependendo do recurso disponível)
+            model = whisper.load_model("base")
+
+            # Realizar a transcrição
+            result = model.transcribe(temp_audio_path, language='pt')
+            transcription = result['text']
+
+            # Remover o arquivo temporário após a transcrição
+            os.remove(temp_audio_path)
+
+            # Retornar a transcrição na resposta
+            return transcribe_text(request, transcription)
+        except Exception as e:
+            # Em caso de erro, retornar como JSON
+            return JsonResponse({'error': f'Erro ao transcrever o áudio: {str(e)}'})
+
+    # Renderizar o template para upload do arquivo de áudio
     return render(request, 'conversao.html')
 
 def transcribe_text(request, text=None):
