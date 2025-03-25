@@ -28,6 +28,13 @@ CSRF_TRUSTED_ORIGINS = [
     'https://transkritor1-9fqme85s.b4a.run', # Permissão de inclusão de arquivos
 ]
 
+
+FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.MemoryFileUploadHandler', 
+                        'django.core.files.uploadhandler.TemporaryFileUploadHandler']
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB (2.5 MB é o padrão)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB padrão
+
 # Application definition
 
 INSTALLED_APPS = [
