@@ -1,0 +1,199 @@
+/* Estilo do Corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suave transição entre temas */
+}
+
+/* Modo escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e4e4e4;
+}
+
+/* Botão de Modo Escuro */
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #0d6efd;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: #0056b3;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ffdd00; /* Cor do ícone no modo escuro */
+}
+
+/* Contêiner Principal */
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .container {
+    background: #1e1e1e; /* Cor do fundo no modo escuro */
+}
+
+/* Estilo do Cabeçalho */
+h1 {
+    font-size: 2rem;
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+body.dark-mode h1 {
+    color: #82aaff; /* Cor alternativa para modo escuro */
+}
+
+p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+body.dark-mode p {
+    color: #cfcfcf;
+}
+
+/* Estilização do Input */
+.upload-box {
+    border: 2px dashed #0d6efd;
+    border-radius: 8px;
+    padding: 20px;
+    background: #f1f8ff;
+    margin-bottom: 20px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.upload-box:hover {
+    background: #e7f2ff;
+    border-color: #0056b3;
+}
+
+body.dark-mode .upload-box {
+    background: #2c2c2c;
+    border-color: #82aaff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    color: #0d6efd;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+body.dark-mode label {
+    color: #82aaff;
+}
+
+.file-name {
+    color: #25b645;
+    font-weight: bold;
+    display: block;
+}
+
+body.dark-mode .file-name {
+    color: #4caf50;
+}
+
+/* Estilização do Botão */
+button {
+    background-color: #0d6efd;
+    color: #fff;
+    padding: 12px 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    margin: 20px;
+}
+
+body.dark-mode button {
+    background-color: #1c1c7c;
+}
+
+button:active {
+    transform: scale(1);
+    margin: 20px;
+}
+
+/* Spinner */
+.spinner {
+    display: none;
+    margin: 20px auto 0;
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0d6efd;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+body.dark-mode .spinner {
+    border: 5px solid #3a3a3a;
+    border-top: 5px solid #82aaff;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+footer a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode footer a {
+    color: #82aaff;
+}

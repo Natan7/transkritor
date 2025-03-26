@@ -3,110 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texto Extraído</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/transcribed-text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+    <script src="{% static 'js/copy-text.js' %}"></script>
+    <script src="{% static 'js/redirect-home.js' %}"></script>
+    <script src="{% static 'js/dark-mode.js' %}"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Estilo do Corpo */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa; /* Fundo suave */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Altura mínima da tela */
-        }
-
-        /* Contêiner Principal */
-        .container {
-            position: relative; /* Necessário para posicionar o ícone e texto de copiar */
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra elegante */
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        /* Estilo do Cabeçalho */
-        h1 {
-            font-size: 2rem;
-            color: #0d6efd; /* Azul vibrante */
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 30px;
-        }
-
-        /* Estilo do Feedback de Copiar */
-        .copy-status {
-            position: absolute;
-            top: 10px; /* Posicionado no canto superior direito */
-            right: 10px;
-            font-size: 1rem;
-            color: #0d6efd;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px; /* Espaço entre ícone e texto */
-        }
-
-        .copy-status:hover {
-            color: #0056b3; /* Cor mais escura ao passar o mouse */
-        }
-
-        /* Rodapé */
-        footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-
-        footer a {
-            color: #0d6efd;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
-    <!-- Script para copiar texto -->
-    <script>
-        // Função para copiar texto
-        function copyText() {
-            const extractedMessage = document.querySelector('.extracted-message');
-            const textToCopy = extractedMessage.textContent || extractedMessage.innerText;
-
-            // Usar a API Clipboard para copiar o texto
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const copyStatusElement = document.getElementById('copyStatus');
-                copyStatusElement.innerHTML = '<i class="fas fa-check"></i> Copiado'; // Alterar ícone e texto para "Copiado"
-
-                // Voltar ao estado original ("Copiar") após 3 segundos
-                setTimeout(() => {
-                    copyStatusElement.innerHTML = '<i class="fas fa-copy"></i> Copiar';
-                }, 3000);
-            }).catch((err) => {
-                console.error('Erro ao copiar texto:', err);
-            });
-        }
-
-        // Função para redirecionar para a página inicial
-        function redirectToHome() {
-            window.location.href = "/"; // Página de destino
-        }
-    </script>
+    <title>Transkritor</title>
 </head>
 <body>
+    <!-- Botão para alternar modo escuro -->
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Modo Escuro" onclick="toggleDarkMode()">🌙</button>
+
     <div class="container">
         <!-- Ícone e texto de copiar no canto superior direito -->
         <div id="copyStatus" class="copy-status" onclick="copyText()">

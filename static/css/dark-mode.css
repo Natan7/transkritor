@@ -1,0 +1,75 @@
+/* Modo Claro */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo Escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e4e4e4;
+}
+
+/* Botão de Modo Escuro */
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #0d6efd;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: #0056b3;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #ffdd00; /* Cor no modo escuro */
+}
+
+body.dark-mode .container {
+    background: #1e1e1e; /* Cor do fundo no modo escuro */
+}
+
+body.dark-mode h1 {
+    color: #82aaff; /* Cor alternativa para modo escuro */
+}
+
+body.dark-mode p {
+    color: #cfcfcf;
+}
+
+body.dark-mode .upload-box {
+    background: #2c2c2c;
+    border-color: #82aaff;
+}
+
+body.dark-mode label {
+    color: #82aaff;
+}
+
+body.dark-mode .file-name {
+    color: #4caf50;
+}
+
+body.dark-mode button {
+    background-color: #1c1c7c;
+}
+
+body.dark-mode .spinner {
+    border: 5px solid #3a3a3a;
+    border-top: 5px solid #82aaff;
+}
+
+body.dark-mode footer a {
+    color: #82aaff;
+}

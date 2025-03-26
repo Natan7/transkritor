@@ -5,143 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <title>Transcrição de Áudio</title>
-    <style>
-        /* Estilo do Corpo */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* Contêiner Principal */
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        /* Estilo do Cabeçalho */
-        h1 {
-            font-size: 2rem;
-            color: #0d6efd;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 30px;
-        }
-
-        /* Estilização do Input */
-        .upload-box {
-            border: 2px dashed #0d6efd;
-            border-radius: 8px;
-            padding: 20px;
-            background: #f1f8ff;
-            margin-bottom: 20px;
-            transition: background 0.3s ease, border-color 0.3s ease;
-        }
-
-        .upload-box:hover {
-            background: #e7f2ff;
-            border-color: #0056b3;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        label {
-            color: #0d6efd;
-            font-weight: bold;
-            cursor: pointer;
-            display: block;
-        }
-
-        .file-name {
-            color: #25b645;
-            font-weight: bold;
-            display: block;
-        }
-
-        /* Estilização do Botão */
-        button {
-            background-color: #0d6efd;
-            color: #fff;
-            padding: 12px 20px;
-            margin: 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease, transform 0.2s ease;
-            display: none; /* Oculto inicialmente */
-        }
-
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-            margin: 20px;
-        }
-
-        button:active {
-            transform: scale(1);
-            margin: 20px;
-        }
-
-        /* Spinner */
-        .spinner {
-            display: none;
-            margin: 20px auto 0;
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #0d6efd;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Rodapé */
-        footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-
-        footer a {
-            color: #0d6efd;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dark-mode.css' %}">
+    <script src="{% static 'js/dark-mode.js' %}"></script>
+    <script src="{% static 'js/upload-file.js' %}"></script>
+    <title>Transkritor</title>
 </head>
 <body>
+    <!-- Botão para alternar modo escuro -->
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Modo Escuro" onclick="toggleDarkMode()">🌙</button>
+
     <div class="container">
         <h1>Transcrição de Áudio</h1>
         <p>Faça upload do seu arquivo de áudio para obter a transcrição.</p>
@@ -160,36 +33,5 @@
         </form>
         {% include 'footer.html' %}
     </div>
-
-    <!-- Script para manipulação de exibição -->
-    <script>
-        function updateFileName() {
-            const fileInput = document.getElementById('audio_file');
-            const fileNameSpan = document.getElementById('fileName');
-            const transcribeButton = document.getElementById('transcribeButton');
-            const uploadLabel = document.getElementById('uploadLabel');
-
-            if (fileInput.files.length > 0) {
-                // Exibe o nome do arquivo
-                const fileName = fileInput.files[0].name;
-                fileNameSpan.textContent = `${fileName}`;
-                uploadLabel.style.display = 'none'; // Esconde o texto "Clique aqui ou arraste o arquivo"
-                transcribeButton.style.display = 'inline-block'; // Mostra o botão Transcrever
-            } else {
-                fileNameSpan.textContent = ''; // Reseta o nome do arquivo
-                uploadLabel.style.display = 'block'; // Mostra novamente o texto padrão
-                transcribeButton.style.display = 'none'; // Oculta o botão novamente
-            }
-        }
-
-        function showSpinner() {
-            const spinner = document.getElementById('spinner');
-            const transcribeButton = document.getElementById('transcribeButton');
-
-            // Exibir o spinner e desabilitar o botão enquanto a submissão ocorre
-            spinner.style.display = 'block';
-            transcribeButton.disabled = true;
-        }
-    </script>
 </body>
 </html>
