@@ -8,11 +8,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Altura mínima da tela */
+    min-height: 750px; /* altura mínima */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suave transição entre temas */
 }
 
 /* Contêiner Principal */
 .container {
+    position: relative; /* Necessário para posicionar o ícone e texto de copiar */
     background: #ffffff;
     padding: 40px;
     border-radius: 12px;
@@ -20,6 +22,7 @@ body {
     width: 90%;
     max-width: 600px;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 /* Estilo do Cabeçalho */
@@ -33,31 +36,6 @@ p {
     font-size: 1rem;
     color: #6c757d;
     margin-bottom: 30px;
-}
-
-/* Estilização do Input */
-.upload-box {
-    border: 2px dashed #0d6efd; /* Borda pontilhada */
-    border-radius: 8px;
-    padding: 20px;
-    background: #f1f8ff; /* Fundo suave azul */
-    margin-bottom: 20px;
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-
-.upload-box:hover {
-    background: #e7f2ff; /* Cor ao passar o mouse */
-    border-color: #0056b3; /* Azul mais escuro */
-}
-
-input[type="file"] {
-    display: none;
-}
-
-label {
-    color: #0d6efd;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 /* Estilização do Botão */
@@ -81,20 +59,4 @@ button:hover {
 
 button:active {
     transform: scale(1); /* Retorno ao tamanho original */
-}
-
-/* Rodapé */
-footer {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: #6c757d;
-}
-
-footer a {
-    color: #0d6efd;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
