@@ -16,8 +16,7 @@ DEBUG = True
 #################################################################
 
 ALLOWED_HOSTS = [
-    # Expressão regular para permitir qualquer subdomínio que comece com 'transkritor1-' e termine com '.b4a.run'
-    r're:^transkritor1\-.*\.b4a\.run$',
+    'transkritor1-2pd21x05.b4a.run',
 ]
 
 STATIC_URL = '/static/'
