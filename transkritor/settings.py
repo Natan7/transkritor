@@ -16,7 +16,8 @@ DEBUG = True
 #################################################################
 
 ALLOWED_HOSTS = [
-    'transkritor1-9fqme85s.b4a.run',
+    # Expressão regular para permitir qualquer subdomínio que comece com 'transkritor1-' e termine com '.b4a.run'
+    r're:^transkritor1\-.*\.b4a\.run$',
 ]
 
 STATIC_URL = '/static/'
@@ -25,7 +26,7 @@ STATICFILES_DIRS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://transkritor1-9fqme85s.b4a.run', # Permissão de inclusão de arquivos
+    'https://transkritor1-2pd21x05.b4a.run', # Permissão de inclusão de arquivos
 ]
 
 
