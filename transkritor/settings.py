@@ -1,7 +1,7 @@
 """
 Django settings for transkritor project.
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -17,6 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'transkritor1-2pd21x05.b4a.run',
+    os.getenv("URL_BACK4APP"), # URL gerada pelo Back4App
 ]
 
 STATIC_URL = '/static/'
@@ -24,8 +25,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",  # Certifique-se de que esta pasta contém os arquivos CSS
 ]
 
+# Permissão de inclusão de arquivos
 CSRF_TRUSTED_ORIGINS = [
-    'https://transkritor1-2pd21x05.b4a.run', # Permissão de inclusão de arquivos
+    'https://transkritor1-2pd21x05.b4a.run', 
+    'https://' + os.getenv("URL_BACK4APP"), # URL gerada pelo Back4App
 ]
 
 
