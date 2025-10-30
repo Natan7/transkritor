@@ -16,7 +16,7 @@
 
 ## 🛠️ Como Utilizar
 
-1. Acesse a aplicação hospedada em: [Transkritor](https://transkritor1-b4bozq70.b4a.run/).
+1. Acesse a aplicação hospedada em: [Transkritor](https://transkritor.onrender.com/).
 
 2. Faça o upload de um arquivo de áudio no formato compatível (por exemplo, MP3, WAV).
 
