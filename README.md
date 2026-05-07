@@ -45,4 +45,4 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` p
 
 ## 📧 Contato
 
-Para dúvidas ou sugestões, entre em contato com [seu email/linkedin](https://www.linkedin.com/in/natan-macena-ribeiro/).
+Para dúvidas ou sugestões, entre em contato com [https://www.linkedin.com/in/natan-macena-ribeiro/](https://www.linkedin.com/in/natan-macena-ribeiro/).
